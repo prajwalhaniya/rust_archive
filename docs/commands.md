@@ -5,3 +5,4 @@
 - Build & Run the program: `cargo run`
 - Build a project without producing a binary to check for errors: `cargo check`
 - Compile with optimizations: `cargo build --release`
+- Updating the crates: `cargo update`
