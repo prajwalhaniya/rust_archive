@@ -1,0 +1,7 @@
+- Create a project: `cargo new PROJECT_NAME`
+- Compile rust program: `rustc RUST_FILE_NAME`
+- Run the rust program: `./COMPILED_BINARY`
+- Create a build: `cargo build`
+- Build & Run the program: `cargo run`
+- Build a project without producing a binary to check for errors: `cargo check`
+- Compile with optimizations: `cargo build --release`
