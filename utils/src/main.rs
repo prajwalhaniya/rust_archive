@@ -1,4 +1,5 @@
 mod file_handler;
+mod grep;
 
 use std::io::BufRead;
 

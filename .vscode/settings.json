@@ -13,6 +13,6 @@
     "editor.fontSize": 13,
     "editor.fontWeight": "bold",
     "rust-analyzer.linkedProjects": [
-        "/Users/prajwalhn/Documents/workspace/Extras/rust_archive/utils/Cargo.toml"
+        "/Users/prajwalhn/Documents/workspace/Extras/rust_archive/grep/Cargo.toml"
     ]
 }

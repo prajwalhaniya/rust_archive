@@ -6,6 +6,8 @@ Lets understand:
 use std::fs::File;
 use std::io::{BufReader, Write};
 use std::path::Path;
+use tokio::sync::Mutex;
+use std::sync::Arc;
 
 pub fn create_file(dir_path: &str, file_name: &str, content: &str) -> Result<(), Box<dyn std::error::Error>> {
     let file_path = format!("{}/{}", dir_path, file_name);
@@ -37,4 +39,17 @@ pub fn read_large_file(file_path: &str) -> Result<BufReader<File>, Box<dyn std::
     Ok(reader)
 }
 
+pub async fn write_line_to_a_file(file_path: &Arc<Mutex<File>>, message: &str) {
+    let timestamp = chrono::Utc::now().format("%Y-%m-%d %H:%M:%S UTC");
+    let log_entry = format!("[{}] {}", timestamp, message);
 
+    let mut file = file_path.lock().await;
+
+    if let Err(e) = writeln!(file, "{}", log_entry) {
+        eprintln!("Failed to write to log file: {}", e);
+    }
+    
+    if let Err(e) = file.flush() {
+        eprintln!("Failed to flush log file: {}", e);
+    }
+}
