@@ -48,14 +48,19 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
-fn understanding_lifetimes() {
-    /**
+/**
+    String::from vs &str
+
+    String::from:
+        let string1: String = String::from("Hello");
         Cannot be modified, for modification use String::from (you will own the data on heap)
         More expensive to use String::from, this is mutable.
 
-        let string1 = "Hello" 
+    &str:
+        let string2: &str = "Hello" 
         -> Here string1 is borrowed, it cannot be modified, it is cheap
-    */
+*/
+fn understanding_lifetimes() {
     let string1 = "Helloo"; 
     let string2 = "World";
 
